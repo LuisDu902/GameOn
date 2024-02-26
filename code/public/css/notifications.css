@@ -1,0 +1,147 @@
+.notifications {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 30px;
+  }
+  
+  .notification {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .Viewd_content .notification h2 {
+    padding: 20px 30px;
+    text-align: justify;
+    color: #4d4d4d;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .notification h2 {
+    padding: 20px 30px;
+    text-align: justify;
+    color: #7c5bf0;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .Viewd_content .notification .type {
+    text-align: end;
+    color: #4d4d4d;
+    margin-top: 0;
+    font-weight: 600;
+  }
+  
+  .notification p {
+    padding: 0 30px;
+    text-align: justify;
+    color: #4d4d4d;
+  }
+  
+  .notification .action {
+    width: fit-content;
+    padding: 2px 20px;
+    border-radius: 5px;
+    color: white;
+    margin: 20px 30px;
+    margin-bottom: 0;
+  }
+  
+  .notification .date {
+    text-align: end;
+    color: #4d4d4d;
+    margin: 20px 30px;
+    margin-top: 0;
+  }
+  
+  .notification .type {
+    text-align: end;
+    color: #7c5bf0;
+    margin-top: 0;
+    font-weight: 600;
+  }
+  
+  .notification:hover {
+    transform: scale(0.97);
+    border: 1px !important;
+    border-color: #7c5bf0 !important;
+  }
+  
+  .Question_content .notification {
+    background-color: #f8f7fe;
+  }
+  
+  .Question_content .action {
+    background-color: #7c5bf0;
+  }
+  
+  .Question_content .circle {
+    background-color: #d2cfff;
+    color: #7c5bf0;
+  }
+  
+  .Viewd_content .circle {
+    background-color: #e8e7e7;
+    color: #8a8a8a;
+  }
+  
+  .Viewd_content .notification {
+    background-color: #f7f7f7;
+  }
+  
+  .notification-wrap {
+    padding-left: 60px;
+    display: flex;
+    gap: 40px;
+    position: relative;
+  }
+  
+  .notification-wrap .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    min-width: 42px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 20px;
+  }
+  
+  .notification-wrap::before {
+    content: "";
+    position: absolute;
+    height: calc(100% + 40px);
+    width: 1px;
+    background-color: #dbdbdb;
+    top: -20px;
+    left: 80px;
+    z-index: -1;
+  }
+  
+  .notifications-section #userReportNotification {
+    font-size: 18px;
+    text-align: center;
+    background-color: #d2cfff;
+    width: 300px;
+    padding: 5px 0;
+    color: #7c5bf0;
+    border-radius: 5px;
+    transition: all 400ms ease;
+    left: 4rem;
+  }
+  
+  .notifications-section #userReportNotification:hover {
+    background-color: #7c5bf0;
+    color: white;
+  }
+  
+  .user-notifications {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+  }
+  

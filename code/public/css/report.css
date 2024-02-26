@@ -1,0 +1,161 @@
+.report-popup {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+  }
+  
+  .report-popup2 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: -30px;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+  }
+  
+  .report-popup-content {
+    background-color: #fefefe;
+    margin-top: 7%; 
+    margin-left: 37.5%; 
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 25%; 
+  }
+  
+  .report-popup2-content {
+    background-color: #fefefe;
+    margin-top: 7%; 
+    margin-left: 37.5%; 
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 25%; 
+  }
+  
+  .report-popup-content h2 {
+    color: #684fe3;
+  }
+  
+  .report-popup-content input {
+    margin-top: 15px;
+  }
+  
+  .report-popup2-content h2 {
+    color: #684fe3;
+  }
+  
+  .report-popup2-content input {
+    margin-top: 15px;
+  }
+  
+  .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close-btn:hover,
+  .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #elaborate {
+    margin-top: 5px;
+    margin-bottom: 50px;
+  }
+  
+  .report-popup-content {
+    padding: 30px !important;
+  }
+  
+  .report-popup2-content {
+    padding: 30px !important;
+  }
+  
+  #reportPopup button {
+    position: relative;
+    top: -20px;
+    font-size: 20px;
+    left: 34%;
+    text-align: center;
+    color: #684fe3;
+  }
+  
+  #reportPopup textarea {
+    position: relative;
+    top: -35px;
+    resize: none;
+    width: 100%;
+    height: 50px;
+  }
+  
+  #reportPopup2 button {
+    position: relative;
+    top: -20px;
+    font-size: 20px;
+    left: 34%;
+    text-align: center;
+    color: #684fe3;
+  }
+  
+  #reportPopup2 textarea {
+    position: relative;
+    top: -35px;
+    resize: none;
+    width: 100%;
+    height: 50px;
+  }
+  
+  #reportPopup3 button {
+    position: relative;
+    top: -20px;
+    font-size: 20px;
+    left: 34%;
+    text-align: center;
+    color: #684fe3;
+  }
+  
+  #reportPopup3 textarea {
+    position: relative;
+    top: -35px;
+    resize: none;
+    width: 100%;
+    height: 50px;
+  }
+  
+  .status-dropdown .status-solved {
+    color: green;
+  }
+  
+  .status-dropdown .status-unsolved {
+    color: red;
+  }
+  
+  #reason {
+    color: red;
+  }
+  
+  .explanation-text {
+    max-width: 350px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+  

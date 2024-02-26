@@ -1,0 +1,77 @@
+.contact-wrapper {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 40px;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  
+  .contact-wrapper > div,
+  #contactForm {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-section p {
+    font-size: 20px;
+  }
+  
+  .contact-section textarea {
+    min-height: 150px;
+  }
+  
+  #contactForm button {
+    padding: 5px 30px;
+    background-color: #7c5bf0;
+    width: fit-content;
+    margin: 0 auto;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: all 400ms ease;
+  }
+  
+  #contactForm button:hover {
+    transform: scale(0.95);
+  }
+  
+  .contact-section img {
+    width: 450px;
+    margin: 0 auto;
+  }
+  
+  .about-us {
+    margin: 30px 0;
+  }
+  
+  .about-us h2 {
+    font-size: 25px;
+  }
+  
+  .about-us p {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e6e7f3;
+  }
+  
+  .team ul {
+    display: flex;
+    margin: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .team li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .team span {
+    font-weight: 600;
+  }
+  

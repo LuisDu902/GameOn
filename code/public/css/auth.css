@@ -1,0 +1,266 @@
+.limiter {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .auth-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .auth-form label {
+    display: none;
+  }
+  
+  .auth-form,
+  .email-sent {
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 65px;
+    width: 500px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 10px;
+    color: var(--gray);
+    font-size: 14px;
+  }
+  
+  .extra label {
+    display: inline-block;
+  }
+  
+  .forget-pass a {
+    color: var(--gray);
+    margin: 0px;
+    transition: all 0.4s;
+    text-decoration: underline;
+  }
+  
+  .auth-form h1 {
+    display: block;
+    font-weight: bolder;
+    font-size: 45px;
+    color: var(--dark-purple);
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 40px;
+  }
+  
+  .input-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 25px;
+    background-color: var(--light-purple);
+  }
+  
+  .field {
+    margin-bottom: 30px;
+  }
+  
+  .input {
+    font-size: 16px;
+    color: var(--gray);
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 55px;
+    background: transparent;
+    padding: 0 10px 0 65px;
+  }
+  
+  .icon {
+    position: absolute;
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    top: 15px;
+    left: 25px;
+    pointer-events: none;
+    color: var(--dark-purple);
+  }
+  .btn-wrapper {
+    background-color: var(--purple);
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 20px;
+    transition: transform 0.5s, background-color 0.5s;
+  }
+  
+  .login-btn,
+  .register-btn,
+  .continue-btn,
+  .change-btn {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 25px;
+  }
+  
+  .btn-wrapper:hover {
+    transform: scale(0.95);
+    background-color: var(--dark-purple);
+  }
+  
+  .alt-methods {
+    text-align: center;
+    margin: 30px 0 25px 0;
+    color: var(--gray);
+    position: relative;
+  }
+  
+  .line-before,
+  .line-after {
+    border: 0;
+    border-top: 1px solid var(--gray);
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+  
+  .line-before {
+    left: 0;
+  }
+  
+  .line-after {
+    right: 0;
+  }
+  
+  .google-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 48%;
+    padding: 0px;
+    border-radius: 10px;
+    position: relative;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 1px solid #c65353;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .google {
+    color: #c65353;
+  }
+  
+  .google-btn .opt-icon.google,
+  .google-btn .option.google {
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .google-btn:hover {
+    background-color: #c65353;
+  }
+  
+  .google-btn:hover .opt-icon.google,
+  .google-btn:hover .option.google {
+    color: white;
+  }
+  
+  .option {
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 15px 15px 15px 45px;
+  }
+  
+  .opt-icon {
+    position: absolute;
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    top: 14px;
+    left: 25px;
+    pointer-events: none;
+  }
+  
+  .toggle-login,
+  .toggle-register {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--gray);
+  }
+  
+  .toggle-login a,
+  .toggle-register a {
+    line-height: 1.7;
+    color: var(--dark-purple);
+    transition: all 0.4s;
+  }
+  
+  .toggle-register {
+    margin-top: 20px;
+  }
+  
+  .error {
+    color: #c65353;
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .no-user-email {
+    color: #c65353;
+    margin-left: 20px;
+  }
+  
+  #forget-title {
+    padding-bottom: 20px;
+  }
+  
+  #forget-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--gray);
+  }
+  
+  .email-sent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .email-sent h1 {
+    padding: 0;
+    padding-top: 20px;
+    font-size: 30px;
+    color: var(--dark-purple);
+  }
+  
+  .email-sent ion-icon {
+    font-size: 100px;
+    color: rgb(74 222 128);
+  }
+  
+  .email-sent p {
+    text-align: center;
+  }
+  

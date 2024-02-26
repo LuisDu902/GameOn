@@ -1,0 +1,731 @@
+openapi: 3.0.0
+
+info:
+ version: '1.0'
+ title: 'GameOn Web API'
+ description: 'Web Resources Specification (A7) for GameOn'
+
+servers:
+- url: https://lbaw23143.lbaw.fe.up.pt/
+  description: Production server
+
+externalDocs:
+ description: Find more info here.
+ url: https://git.fe.up.pt/lbaw/lbaw2324/lbaw23143/-/wikis/eap
+ 
+tags:
+ - name: 'M01: Authentication'
+ - name: 'M02: Users'
+ - name: 'M03: Posts'
+ - name: 'M04: Games'
+ - name: 'M05: Administration'
+
+paths:
+ /login: 
+   get:
+     operationId: R101
+     summary: 'R101: Login Form'
+     description: 'Provide login form. Access: GST'
+     tags:
+       - 'M01: Authentication'
+     responses:
+       '200':
+         description: 'Ok. Show Log-in UI'
+   post:
+     operationId: R102
+     summary: 'R102: Login Action'
+     description: 'Processes the login form submission. Access: GST'
+     tags:
+       - 'M01: Authentication'
+
+     requestBody:
+       required: true
+       content:
+         application/x-www-form-urlencoded:
+           schema:
+             type: object
+             properties:
+               email:         
+                 type: string
+               password:    
+                 type: string
+             required:
+                  - email
+                  - password
+
+     responses:
+       '302':
+         description: 'Redirect after processing the login credentials.'
+         headers:
+           Location:
+             schema:
+               type: string
+             examples:
+               302Success:
+                 description: 'Successful authentication. Redirect to home page.'
+                 value: '/home'
+               302Error:
+                 description: 'Failed authentication. Redirect to login form.'
+                 value: '/login'
+
+ /logout:
+
+   get:
+     operationId: R103
+     summary: 'R103: Logout Action'
+     description: 'Logout the current authenticated user. Access: USR'
+     tags:
+       - 'M01: Authentication'
+     responses:
+       '302':
+         description: 'Redirect after processing logout.'
+         headers:
+           Location:
+             schema:
+               type: string
+             examples:
+               302Success:
+                 description: 'Successful logout. Redirect to home page.'
+                 value: '/home'
+
+ /register:
+   get:
+     operationId: R104
+     summary: 'R104: Register Form'
+     description: 'Provide new user registration form. Access: GST'
+     tags:
+       - 'M01: Authentication'
+     responses:
+       '200':
+         description: 'Ok. Show Sign-Up UI'
+
+   post:
+     operationId: R105
+     summary: 'R105: Register Action'
+     description: 'Processes the new user registration form submission. Access: GST'
+     tags:
+       - 'M01: Authentication'
+
+     requestBody:
+       required: true
+       content:
+         application/x-www-form-urlencoded:
+           schema:
+             type: object
+             properties:
+               name:
+                 type: string
+               username:
+                 type: string
+               email:
+                 type: string
+                 format: email
+               password:
+                 type: string
+                 format: password
+               password_confirmation:
+                 type: string
+                 format: password
+             required:
+                - name
+                - username
+                - email
+                - password
+                - password_confirmation
+
+     responses:
+       '302':
+         description: 'Redirect after processing the new user information.'
+         headers:
+           Location:
+             schema:
+               type: string
+             examples:
+               302Success:
+                 description: 'Successful authentication. Redirect to home page.'
+                 value: '/home'
+               302Failure:
+                 description: 'Failed authentication. Redirect again to register form.'
+                 value: '/register'
+
+ /home:
+    get:
+      operationId: R201
+      summary: 'R201: View GameOn home page'
+      description: 'Show GameOn home page. Access: GST, USR'
+      tags:
+        - 'M02: Users'
+      
+      responses:
+       '200':
+         description: 'Ok. Show home page'
+
+ /users:
+    get:
+      operationId: R202
+      summary: 'R202: View all users'
+      description: 'Show all GameOn users. Access: GST, USR'
+      tags:
+        - 'M02: Users'
+
+      responses:
+        '200':
+          description: 'Ok. Show users lists'
+      
+ /users/{id}:
+    get:
+      operationId: R203
+      summary: 'R203: View user profile page'
+      description: 'Show the individual user profile. Access: GST, USR'
+      tags:
+        - 'M02: Users'
+
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: 'Ok. Show User Profile UI'
+
+ 
+ /users/questions/{id}:
+    get:
+      operationId: R204
+      summary: 'R204: View user questions'
+      description: 'Show user questions page. Access: GST, USR'
+      tags:
+        - 'M02: Users'
+
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: 'OK. Show the questions page for an individual user'
+
+
+ /user/answers/{id}:
+    get:
+      operationId: R205
+      summary: 'R205: View user answers'
+      description: 'Show user answers page. Access: GST, USR'
+      tags:
+        - 'M02: Users'
+
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: 'OK. Show the answers page for an individual user'
+ 
+
+ /api/users:
+    get:
+      operationId: R206
+      summary: 'R206: Search for users'
+      description: 'Search for users with filter. Access: GST, USR'
+      tags:
+        - 'M02: Users'
+
+      parameters:
+        - in: query
+          name: search
+          description: 'Search content'
+          schema:
+            type: string
+          required: true
+
+        - in: query
+          name: filter
+          description: 'Filter users'
+          schema:
+            type: string
+          required: true
+        
+        - in: query
+          name: order
+          description: 'Order users'
+          schema:
+            type: string
+          required: true
+
+      responses:
+        '200':
+          description: 'Success. Returns HTML code containing the list of users that match the search'
+
+ /questions:
+    get:
+      operationId: R301
+      summary: 'R301: View all questions'
+      description: 'Show all questions. Access: GST, USR'
+      tags:
+        - 'M03: Posts'
+      
+      responses:
+        '200':
+          description: 'OK. Show the questions page'
+
+    post:
+      operationId: R302
+      summary: 'R302: Search questions'
+      description: 'Search questions. Access: GST, USR'
+      tags:
+        - 'M03: Posts'
+      parameters:
+        - name: filterCriteria
+          in: query
+          description: 'Filter criteria for search'
+          required: false
+          schema:
+            type: string
+        - name: searchInput
+          in: query
+          description: 'Input for search'
+          required: false
+          schema:
+            type: string
+        - name: orderCriteria
+          in: query
+          description: 'Order criteria for search'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'OK. Search successful'
+
+ /new-question:
+      get:
+        operationId: R303
+        summary: 'R303: Create a new question'
+        description: 'Create a new question. Access: USR'
+        tags:
+          - 'M03: Posts'
+        responses:
+          '200':
+            description: 'OK. Show the new question page'
+
+      post:
+        operationId: R304
+        summary: 'R304: Store a new question'
+        description: 'Store a new question. Access: USR'
+        tags:
+          - 'M03: Posts'
+        requestBody:
+         required: true
+         content:
+           application/x-www-form-urlencoded:
+             schema:
+               type: object
+               properties:
+                 title:         
+                   type: string
+                 content:    
+                   type: string
+                 game:    
+                   type: string
+                 user:
+                   type: integer
+               required:
+                    - title
+                    - content
+                    - game
+                    - user
+        responses:
+          '200':
+            description: 'OK. Question stored successfully'
+
+ /questions/{id}:
+    get:
+      operationId: R305
+      summary: 'R305: View a specific question'
+      description: 'View a specific question. Access: GST, USR'
+      tags:
+        - 'M03: Posts'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'OK. Show the specific question'
+
+ /comments/store:
+    post:
+      operationId: R306
+      summary: 'R306: Store a comment'
+      description: 'Store a comment. Access: USR'
+      tags:
+        - 'M03: Posts'
+      requestBody:
+         required: true
+         content:
+           application/x-www-form-urlencoded:
+             schema:
+               type: object
+               properties:
+                 content:         
+                   type: string
+                 user:    
+                   type: integer
+                 answer:    
+                   type: integer
+                
+               required:
+                    - content
+                    - user
+                    - answer
+      responses:
+        '200':
+          description: 'OK. Comment stored successfully'
+
+ /categories:
+    get:
+      operationId: R401
+      summary: 'R401: View all game categories'
+      description: 'Show all game categories. Access: GST, USR'
+      tags:
+        - 'M04: Games'
+
+      responses:
+        '200':
+          description: 'OK. Show the game categories page'
+
+ /categories/{id}:
+    get:
+      operationId: R402
+      summary: 'R402: View game category page'
+      description: 'Show game category page. Access: GST, USR'
+      tags:
+        - 'M04: Games'
+
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: 'OK. Show the game category page'
+
+ /game/{id}:
+    get:
+      operationId: R403
+      summary: 'R403: View game page'
+      description: 'Show game page. Access: GST, USR'
+      tags:
+        - 'M04: Games'
+
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: 'OK. Show the game page'
+  
+
+ /api/users/{id}:
+    post:
+      operationId: R501
+      summary: 'R501: Update user status'
+      description: 'Update user status (ban or unban user account). Access: ADM'
+      tags:
+        - 'M05: Administration'
+      
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                new_status:
+                  type: string
+                  enum: ['Active', 'Banned']
+                  description: 'The new status for the user account (active or banned).'
+              required:
+                - new_status
+      responses:
+        '200':
+          description: 'Success. User status updated.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'User not found.'
+          
+ /api/users/{id}/edit:
+    post:
+      operationId: R207
+      summary: 'R207: Edit user profile'
+      description: 'Edit user profile information. Access: OWN'
+      tags:
+        - 'M02: Users'
+      
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                 type: string
+                username:
+                 type: string
+                email:
+                 type: string
+                 format: email
+                description:
+                 type: string
+                
+              required:
+                    - name
+                    - username
+                    - email
+                    - description
+                
+      responses:
+        '200':
+          description: 'Success. User profile updated.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'User not found.'
+          
+  
+ /api/questions:
+    get:
+      operationId: R307
+      summary: 'R307: List Questions'
+      description: 'Retrieve a list of questions. Access: GST, USR'
+      tags:
+        - 'M03: Posts'
+      responses:
+        '200':
+          description: 'Success. List of questions retrieved.'
+          
+          
+ /api/questions/{id}/delete:
+    delete:
+      operationId: R308
+      summary: 'R308: Delete Question'
+      description: 'Delete an existing question. Access: OWN'
+      tags:
+        - 'M03: Posts'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Success. Question deleted.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'Question not found.'
+
+ /api/questions/{id}/vote:
+    post:
+      operationId: R309
+      summary: 'R309: Vote for Question'
+      description: 'Vote for a question. Access: USR'
+      tags:
+        - 'M03: Posts'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Success. Vote registered for the question.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'Question not found.'
+
+
+ /api/questions/{id}/unvote:
+    post:
+      operationId: R310
+      summary: 'R310: Unvote for Question'
+      description: 'Remove vote for a question. Access: USR'
+      tags: 
+        - 'M03: Posts'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Success. Vote removed for the question.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'Question not found.'
+          
+ /api/questions/{id}/edit:
+    put:
+      operationId: R311
+      summary: 'R311: Edit Question'
+      description: 'Edit an existing question. Access: OWN'
+      tags:
+        - 'M03: Posts'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user:
+                 type: integer
+                title:
+                 type: string
+                content:
+                 type: string
+                
+              required:
+                    - user
+                    - title
+                    - content
+
+      responses:
+        '200':
+          description: 'Success. Question edited.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'Question not found.'
+          
+        
+ /api/answers:
+    post:
+      operationId: R312
+      summary: 'R312: Store Answer'
+      description: 'Store a new answer. Access: USR'
+      tags:
+        - 'M03: Posts'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: 'The content of the answer.'
+                questionId:
+                  type: integer
+                  description: 'The ID of the question.'
+                userId:
+                  type: integer
+                  description: 'The ID of the user.'
+      responses:
+        '200':
+          description: 'Success. Answer stored.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+
+ /api/answers/{id}/edit:
+    put:
+      operationId: R313
+      summary: 'R313: Edit Answer'
+      description: 'Edit an existing answer. Access: OWN'
+      tags:
+        - 'M03: Posts'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: 'The content of the answer.'
+                userId:
+                  type: integer
+                  description: 'The ID of the user.'
+      responses:
+        '200':
+          description: 'Success. Answer edited.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'Answer not found.'
+
+ /api/answers/{id}/delete:
+    delete:
+      operationId: R314
+      summary: 'R314: Delete Answer'
+      description: 'Delete an existing answer. Access: OWN'
+      tags:
+        - 'M03: Posts'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Success. Answer deleted.'
+        '401':
+          description: 'Unauthorized. The action requires proper authentication and authorization.'
+        '404':
+          description: 'Answer not found.'
+

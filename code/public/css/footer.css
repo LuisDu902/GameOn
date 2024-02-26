@@ -1,0 +1,120 @@
+footer {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    border-top: 1px solid #e6e7f3;
+    margin: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  
+  .footer-col {
+    flex: 1;
+    padding: 0 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+  }
+  
+  footer img {
+    height: 40px;
+    width: auto;
+  }
+  
+  footer h5 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2em;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  .get-in-touch li,
+  .quick-links li {
+    display: flex;
+    margin: 20px 0;
+    align-items: center;
+  }
+  
+  .get-in-touch li ion-icon {
+    color: var(--dark-purple);
+    border-radius: 50%;
+    background-color: var(--light-purple);
+    padding: 8px;
+  }
+  
+  .quick-links li ion-icon {
+    color: var(--dark-purple);
+    padding-right: 15px;
+    vertical-align: middle;
+  }
+  
+  .get-in-touch li a,
+  .quick-links li a {
+    font-size: 16px;
+    color: black;
+    font-weight: 100;
+    transition: all 350ms ease;
+  }
+  
+  .get-in-touch li a:hover,
+  .quick-links li a:hover {
+    color: var(--dark-purple);
+    font-weight: 200;
+  }
+  
+  footer .footer-icon-wrapper {
+    padding-right: 15px;
+  }
+  
+  footer p {
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.5em;
+  }
+  
+  footer .social-media {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  footer .social-media li a ion-icon {
+    color: var(--dark-purple);
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--light-purple);
+    transition: all 350ms ease;
+  }
+  
+  footer .social-media li a ion-icon:hover {
+    transform: scale(1.3);
+  }
+  
+  footer .rights {
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 100;
+  }
+  
+  @media (max-width: 900px) {
+    .footer-col:first-child {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    .footer-col:last-child {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .footer-col:nth-child(3) {
+      display: none;
+    }
+  }
+  

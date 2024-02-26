@@ -1,0 +1,243 @@
+.search-bar {
+  display: flex;
+  height: max-content;
+  width: fit-content;
+  margin: 30px auto;
+  font-size: 18px;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 10px;
+}
+
+.search-bar .filter-condition,
+.search-bar .user-search,
+.search-bar .order-condition,
+.search-bar .game-search {
+  border: 2px solid #7c5bf0;
+  border-radius: 7px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.search-bar button {
+  background-color: #7c5bf0;
+  color: white;
+  padding: 0 30px;
+  font-size: 18px;
+  border-radius: 7px;
+  transition: all 300ms ease;
+}
+
+.search-bar button:hover {
+  transform: scale(0.95);
+}
+
+.search-bar ion-icon {
+  position: relative;
+  top: 2px;
+}
+
+.search-bar .filter-condition select,
+.search-bar .order-condition select {
+  border: none;
+  font-size: 18px;
+  background-color: transparent;
+}
+
+.search-bar .user-search,
+.search-bar .game-search {
+  width: 400px;
+}
+
+.search-bar .user-search input,
+.search-bar .game-search input {
+  font-size: 18px;
+}
+
+.users-table,
+.games-table {
+  width: 100%;
+  margin: 40px 0;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 18px;
+  border-radius: 15px;
+  background-color: #7c5bf0;
+  column-gap: 20px;
+}
+
+.users-table th,
+.games-table th {
+  font-weight: 500;
+  color: white;
+  padding: 15px 0;
+}
+
+.users-table th:nth-child(1) {
+  padding-left: 100px;
+  width: 5%;
+}
+
+.users-table th:nth-child(2) {
+  width: 11%;
+}
+
+.users-table th:nth-child(3) {
+  width: 11%;
+}
+
+.users-table th:nth-child(4) {
+  width: 15%;
+}
+
+.users-table th:nth-child(5) {
+  width: 8%;
+}
+
+.users-table th:nth-child(6) {
+  width: 7%;
+}
+
+.users-table th:nth-child(7) {
+  text-align: center;
+  width: 7.5%;
+  padding-right: 20px;
+}
+
+.users-table td:nth-child(7) {
+  text-align: center;
+  padding-right: 20px !important;
+}
+
+.users-table img {
+  margin: 0 30px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.users-table tbody tr:nth-child(odd),
+.games-table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.users-table tbody tr:nth-child(even),
+.games-table tbody tr:nth-child(even) {
+  background-color: #e5e5e5;
+}
+
+.users-table .user-info td,
+.games-table .game-info td {
+  padding: 10px 0;
+}
+
+.users-table tbody tr:last-child td:first-child,
+.games-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+.users-table tbody tr:last-child td:last-child,
+.games-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
+}
+
+.users-table select {
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.users-table .active {
+  border: 1px solid #00bf57;
+  background-color: #cfebc4;
+  color: #00bf57;
+  border-radius: 20px;
+}
+
+.users-table .banned {
+  border: 1px solid #ff3131;
+  background-color: #f5d3d3;
+  color: #ff3131;
+  border-radius: 20px;
+}
+
+.Bronze {
+  color: #9f4747;
+}
+
+.Gold {
+  color: #fba522;
+}
+
+.Master {
+  color: #7c5bf0;
+}
+
+.users-table select option {
+  border: none;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+}
+
+.no-records {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.no-records img {
+  height: 400px;
+  width: 400px;
+}
+
+.delete-user-button ion-icon,
+.delete-game-button ion-icon {
+  color: #c52b2b;
+}
+
+@media (max-width: 1020px) {
+  .search-bar .user-search {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .users-table th:nth-child(6) {
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 940px) {
+  .users-table th:nth-child(4),
+  .user-info td:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .users-table th:nth-child(5),
+  .user-info td:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .users-table th:nth-child(1),
+  .user-info td:nth-child(1) {
+    display: none;
+  }
+  .users-table th:nth-child(2),
+  .user-info td:nth-child(2) {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .users-table th:nth-child(1),
+  .user-info td:nth-child(1) {
+    display: none;
+  }
+}
